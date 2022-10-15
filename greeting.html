@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Greeting landing page</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+    header{
+        height: 20vh;
+        text-align: center;
+        background-color:  #FDFDBD;
+        padding: 2%;
+    }
+    .container{
+        width: 100%;
+        height: 80vh;
+        background-color:  #C8FFD4;
+        padding: 5%;
+        display: flex;
+        align-items:center;
+        justify-content:space-around;
+        flex-direction: column;
+        text-align: center;
+        top:50%;
+        left:50%;
+    }
+    </style>
+</head>
+<body>
+    <header><h1>Welcome visitor!</h1></header>
+    <section>
+        <div class = "container">
+            <h2>Greetings for the day</h2>
+            <ol>
+                <li>Greet visitors "Good morning" if our time period or the hour is less than 12.</li>
+                <li>Greet visitors "Good afternoon" if our time period or the hour is less than 18:00 and greater than 12</li>
+                <li>Greet visitors "Good evening" if the the time period or the hour is greater than 18.</li>
+                <li>We want to have a feature from where we will be having a button that can be clickable that will display the day of the week.</li> 
+            </ol>
+            <button id="day-Button">Click me to know the day</button>
+            <p id="day-Message"></p>
+            <p id="greeting-Hour"></p>
+        
+        </div>
+    </section>
+    <script>/*In this challenge we would want to use conditional statements to be able to greet the visitors of our site 
+        with a message that will be showcasing different time periods during the day. 
+        
+        Scope of the features of the landing page. 
+        1. Greet visitors "Good morning" if our time period or the hour is less than 12.
+        2. Greet visitors "Good afternoon" if our time period or the hour is less than 18:00 and greater than 12
+        3. Greet visitors "Good evening" if the the time period or the hour is greater than 18.
+        4. We want to have a feature from where we will be having a button that can be clickable that will display the day of the week.
+        
+        Day of the week
+        Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday*/
+
+        let weekday = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+
+const d = new Date();
+let day = weekday[d.getDay()];
+let dayButton = document.getElementById("day-Button")
+let dayMessage = document.getElementById("day-Message")
+let greetingHour = document.getElementById("greeting-Hour")
+let dayHours = d.getHours ()
+
+
+dayButton.addEventListener("click", function(){
+  dayMessage.innerHTML = day;
+})
+greetings (dayHours)
+
+function greetings (dayHours){
+    if (dayHours < 12) {
+        greetingHour.innerText = "Good morning"
+    }
+    else if (dayHours == 12) {
+        greetingHour.innerText = "Magandang Tanghali"
+    }
+    else if(dayHours <= 18) {
+        greetingHour.innerText = "Good Afternoon"
+    }
+    else {
+        greetingHour.innerText = "Good Evening"
+    }
+}
+
+        </script>
+</body>
+</html>
